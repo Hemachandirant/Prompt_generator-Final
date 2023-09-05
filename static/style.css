@@ -1,0 +1,169 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #090d13; /* Dark blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the container takes up the full viewport height */
+}
+
+#issue {
+    height: 150px; /* Set the desired height in pixels */
+    font-size: 16px; /* Set the desired font size */
+}
+
+/* Thick black border for the output containers */
+.output-container .output {
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.container {
+    width: 80vw; /* Changed the width to be 40% of the viewport width */
+    background-color: hsl(171, 7%, 65%);
+    padding: 30px; /* Reduced the padding to 30px */
+    border: 2px solid #000000; /* Black borders */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Style the container div to align elements properly */
+.markdown-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Add styles for the mandatory input label */
+.mandatory-input {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.input-box,
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #131206;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    height: 36px;
+}
+
+select {
+    height: 40px;
+}
+
+/* Add animation styles */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadeInOut {
+    animation: fadeInOut 3s ease-in-out;
+}
+
+/* Custom styles for the submit button */
+.submit-button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #007bff; /* Blue color */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #0a2644; /* Darker blue on hover */
+}
+
+/* Custom styles for mandatory input fields */
+.mandatory-input::after {
+    content: "*";
+    color: rgb(216, 36, 36);
+}
+
+/* Styling for output containers */
+.output-container {
+    margin-top: 20px;
+}
+
+.output {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.output h2 {
+    margin-bottom: 10px;
+}
+
+.output-content {
+    white-space: pre-wrap;
+}
+
+/* Add some basic styling for the like and dislike buttons */
+.feedback-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.feedback-buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.like-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.dislike-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Add a class for active state of buttons */
+.active {
+    background-color: #28a745 !important;
+}

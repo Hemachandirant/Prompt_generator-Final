@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Precise Prompt Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Your CSS styles go here */
+        /* ... */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Precise Prompt Generator</h1>
+
+        <!-- Platform -->
+        <h2 class="mandatory-input">Platform:</h2>
+        <div class="markdown-content">
+                <input type="text" class="input-box" placeholder="Specify your Platform" id="platform" required>
+            <!-- <select class="input-box" id="platform" required>
+                <option value="">Select a platform</option>
+                <option value="Outlook">Outlook</option>
+                <option value="Microsoft teams">Microsoft Teams</option>
+                <option value="Citrix cloud">Citrix VDI Platform</option>
+                <option value="Office365 Apps">Office365 Apps</option>
+                <option value="Cloud Services">Cloud Services</option>
+                <option value="Slack">Slack</option>
+                <option value="Github">Github</option>
+                <option value="ServiceNow">ServiceNow</option>
+                <option value="Google Workspace">Google Workspace</option>
+            </select> -->
+        </div>
+
+        <!-- Area -->
+        <h2 class="mandatory-input">Area:</h2>
+        <div class="markdown-content">
+            <select class="input-box" id="area" required>
+                <option value="">Select an area</option>
+                <option value="Operations">Operations</option>
+                <option value="IT infrastructure support">IT Infrastructure Support</option>
+                <option value="Application support">Application Support</option>
+            </select>
+        </div>
+
+        <!-- Role -->
+        <h2 class="mandatory-input">Role:</h2>
+        <div class="markdown-content">
+            <select class="input-box" id="role" required>
+                <option value="">Select your role</option>
+                <option value="Network Administrator">Network Administrator</option>
+                <option value="System Administrator">System Administrator</option>
+                <option value="Technical Support Specialist">Technical Support Specialist</option>
+                <option value="IT Support Analyst">IT Support Analyst</option>
+                <option value="Help Desk Technician">Help Desk Technician</option>
+                <option value="Cloud Engineer">Cloud Engineer</option>
+                <option value="Security Analyst">Security Analyst</option>
+            </select>
+        </div>
+
+        <!-- Objective -->
+        <h2 class="mandatory-input">Objective:</h2>
+        <div class="markdown-content">
+            <select class="input-box" id="adjective" required>
+                <option value="">Select an Objective</option>
+                <option value="Troubleshoot">Troubleshoot the issues</option>
+                <option value="Resolve customer technical issues">Resolve customer Technical issues</option>
+                <option value="Resolve Employee's Technical issues">Resolve Employee's Technical issues</option>
+            </select>
+        </div>
+
+        <!-- Issue -->
+        <h2 class="mandatory-input">Issue:</h2>
+        <div class="markdown-content">
+            <input type="text" class="input-box" placeholder="Specify your issue here" id="issue" required>
+        </div>
+
+        <!-- Language -->
+        <h2 class="mandatory-input">Language:</h2>
+        <div class="markdown-content">
+            <select class="input-box" id="language" required>
+                <option value="">Select a Language</option>
+                <option value="English (UK)">English (UK)</option>
+                <option value="Hindi">Hindi</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Italian">Italian</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Russian">Russian</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Portuguese">Portuguese</option>
+                <option value="Dutch">Dutch</option>
+                <option value="Korean">Korean</option>
+                <option value="Swedish">Swedish</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Greek">Greek</option>
+                <option value="Thai">Thai</option>
+                <option value="Hebrew">Hebrew</option>
+                <option value="Polish">Polish</option>
+                <option value="Indonesian">Indonesian</option>
+                <option value="Vietnamese">Vietnamese</option>
+            </select>
+        </div>
+
+        <!-- Tokens -->
+        <h2 class="mandatory-input">Tokens:</h2>
+        <div class="markdown-content">
+            <input type="text" class="input-box" placeholder="Enter tokens" id="Tokens" required>
+        </div>
+
+        <!-- Length -->
+        <h2 class="mandatory-input">Number of Prompts:</h2>
+        <div class="markdown-content">
+            <input type="number" class="input-box" placeholder="Enter Number of Prompts here" id="noPrompts" required>
+        </div>
+
+        <!-- Temperature -->
+        <h2 class="mandatory-input">Temperature:</h2>
+    <div class="markdown-content">
+        <input type="number" class="input-box" placeholder="Temperature" id="temperature" min="0.1" max="1.0" step ="0.1" required>
+  
+        </div>
+
+        <!-- Model -->
+        <h2 class="mandatory-input">Model:</h2>
+        <div class="markdown-content">
+            <select class="input-box" id="model" required>
+                <option value="">Select a model</option>
+                <option value="text-davinci-001">GPTDavinci</option>
+            </select>
+        </div>
+
+        <button onclick="generatePrompt()" class="submit-button fadeInOut" id="generateBtn">Generate Prompt</button>
+
+        <div class="output-container">
+            <div class="output fadeInOut">
+                <h2>User Input:</Input></h2>
+                <div class="output-content" id="responsePrompt"></div>
+            </div>
+        </div>
+        <!-- Generated Suggestions -->
+        <div class="output-container">
+            <div class="output fadeInOut">
+                <h2>Generated Prompts:</h2>
+                <div class="output-content" id="responseSuggestions"></div>
+            </div>
+        </div>
+
+        <!-- Generated Prompt -->
+        <div class="output-container">
+            <div class="output fadeInOut">
+                <h2>Instructions:</h2>
+                <div class="output-content" id="response"></div>
+                <div class="feedback-buttons">
+                    <button class="like-button" id = "like"onclick="likeSuggestion()">Like</button>
+                    <button class="dislike-button" id = "dislike" onclick="dislikeSuggestion()">Dislike</button>
+                </div>
+            </div>
+</div>
+
+
+        <span class="loading-text" id="loadingText" style="margin-top: 10px;">Developer by GenAI Team</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+ 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #243C5A; /* Dark blue background color */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 30px;
+    border: 5px solid #010203; /* Adding a 3px thick solid border with dark blue color */
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .btn-login {
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s; /* Add a smooth transition on hover */
+        }
+
+        .btn-login:hover {
+            background-color: #45a049;
+        }
+
+        .signup-link {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signup-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        /* Add background animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #243C5A, #3A5C8E, #243C5A);
+            opacity: 0.5;
+            z-index: -1;
+            animation: backgroundAnimation 10s infinite linear;
+        }
+
+        .company-icon {
+            display: block;
+            margin: 0 auto;
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Company icon added here -->
+        <img src="https://i.ibb.co/d2D8k5T/company-logo.png" alt="Company Logo" class="company-icon">
+        <h1>PrecisionPrompt - Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-login">Login</button>
+        </form>
+        <div class="signup-link">
+            Don't have an account? <a href="#">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Add jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Add Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#loginForm").submit(function(event) {
+                event.preventDefault();
+                const username = $("#username").val();
+                const password = $("#password").val();
+                // Here, you can implement your own authentication logic.
+                // For demonstration purposes, let's assume the login is successful with the default user.
+                if (username === "Admin" && password === "Admin@123") {
+                    // Redirect to the main UI after successful login
+                    window.location.href = "/main"; // Change the URL to "/main"
+                } else {
+                    alert("Invalid credentials. Please try again.");
+                }
+            });
+
+            $("#signUpBtn").click(function() {
+                alert("Sign Up functionality will be implemented in a real application.");
+            });
+        });
+    </script>
+</body>
+
+</html>

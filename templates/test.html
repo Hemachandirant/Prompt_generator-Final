@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Precise Prompt Generator</title>
+    <style>
+        /* Your existing styles here */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Your other styles here */
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-top: 20px;">Precise Prompt Generator</h1>
+        <!-- Your other content here -->
+
+        <h2 class="mandatory-input">Role:</h2>
+        <div class="markdown-content">
+            <input type="text" class="input-box" placeholder="Enter role here" id="role" required>
+        </div>
+
+        <h2 class="mandatory-input">Issue:</h2>
+        <div class="markdown-content">
+            <input type="text" class="input-box" placeholder="Enter issue here" id="issue" required>
+        </div>
+
+        <!-- Rest of the content -->
+
+        <button onclick="generatePrompt()" class="submit-button fadeInOut">Generate Prompt</button>
+
+        <div class="output fadeInOut">
+            <h2>Generated Prompt:</h2>
+            <div class="output-content" id="response"></div>
+        </div>
+
+        <script>
+            function generatePrompt() {
+                const role = document.getElementById("role").value;
+                const goal = document.getElementById("issue").value;
+
+                // Create the prompt
+                const prompt = `Your task is to ${goal}.\n\nAs a ${role}, you need to provide step-by-step instructions to resolve this issue and clarify any specific requirements for successful login.\nSuggest troubleshooting steps to overcome them.`;
+
+                // Send the prompt to the backend for processing
+                fetch("/generate_prompt", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ role, goal }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    // Display the response
+                    document.getElementById("response").innerText = data.response;
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+            }
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Generated Prompt</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generated Prompt</h1>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        // Retrieve the generated prompt from local storage
+        const generatedPrompt = localStorage.getItem("generatedPrompt");
+
+        // Display the generated prompt on the response page
+        const responseDiv = document.getElementById("response");
+        responseDiv.innerHTML = `<pre>${generatedPrompt}</pre>`;
+
+        // Clear the prompt from local storage after displaying it
+        localStorage.removeItem("generatedPrompt");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Precise Prompt Generator - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Preferred background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure the container takes up the full viewport height */
+        }
+
+        /* Your existing styles here */
+
+        .login-container {
+            width: 400px; /* Medium size width */
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #000000; /* Black borders */
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-button {
+            display: block;
+            width: 100%;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            background-color: #007bff; /* Blue color */
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Precise Prompt Generator - Login</h1>
+        <form id="login-form">
+            <div class="login-input">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+            </div>
+
+            <div class="login-input">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+
+            <div class="error-message" id="error-message"></div>
+        </form>
+    </div>
+
+    <script>
+        // Function to handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+
+            // Get the username and password from the form
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the credentials match the expected values
+            if (username === 'Admin' && password === 'Admin@123') {
+                // Redirect to the Precise Prompt Builder page on successful login
+                window.location.href = 'http://127.0.0.1:5500/response.html';
+            } else {
+                // Show error message for invalid login credentials
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = 'Invalid username or password';
+            }
+        }
+
+        // Add event listener to the login form
+        const loginForm = document.getElementById('login-form');
+        loginForm.addEventListener('submit', handleLogin);
+    </script>
+</body>
+
+</html>
