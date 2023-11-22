@@ -4,8 +4,8 @@ import pymongo
 import datetime
 import urllib.parse
 application = Flask(__name__)
-azure_api_url = "https://dwspoc.openai.azure.com/openai/deployments/GPTDavinci/completions?api-version=2022-12-01"
-azure_api_key = "bd38ee31e244408cacab3e1dd4c32221" 
+azure_api_url = ""
+azure_api_key = "" 
 
 
 # MongoDB configuration
